@@ -7,7 +7,7 @@ module.exports = (app) => {
   }));
 
   app.get('/api/docente', docenteController.list);
-  app.delete('/api/docente/:iduser', docenteController.destroy);
+  app.delete('/api/docente/:iddocente', docenteController.destroy);
   app.post('/api/docente/', docenteController.create);
-  app.put('/api/docente/:iduser', docenteController.update);
+  app.put('/api/docente/:iddocente', docenteController.update);
 };

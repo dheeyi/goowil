@@ -1,23 +1,41 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <router-view/>
+    <v-app id="inspire">
+      <template v-if="loggedIn">
+        <app-header></app-header>
+        <section class="app-main">
+          <router-view />
+        </section>
+        <app-footer></app-footer>
+      </template>
+      <template v-else>
+        <app-login></app-login>
+      </template>
+    </v-app>
   </div>
 </template>
 
 <script>
+import AppLogin from './components/views/Login'
+import AppHeader from './components/layout/Header'
+import AppFooter from './components/layout/Footer'
 export default {
-  name: 'App'
+  name: 'app',
+  computed: {
+    loggedIn: {
+      get: () => {
+        return Boolean(localStorage.getItem('token'))
+      }
+    }
+  },
+  components: {
+    AppHeader,
+    AppFooter,
+    AppLogin
+  }
 }
 </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang="scss">
+@import 'vuetify/dist/vuetify.min.css';
 </style>
