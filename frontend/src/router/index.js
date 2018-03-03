@@ -2,6 +2,8 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/components/views/Home'
 import Docente from '@/components/views/Docente'
+import Aula from '@/components/views/Aula'
+import Materia from '@/components/views/Materia'
 import Logout from '@/components/views/Logout'
 import Vuetify from 'vuetify'
 import VueSweetalert2 from 'vue-sweetalert2'
@@ -25,12 +27,12 @@ export default new Router({
     {
       path: '/api/aula',
       name: 'Aulas',
-      component: Home
+      component: Aula
     },
     {
       path: '/api/materia',
       name: 'Materias',
-      component: Home
+      component: Materia
     },
     {
       path: '/api/horario',
