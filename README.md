@@ -57,6 +57,19 @@ npm run dev
 * 0.0.1
     * Work in progress
 
+## Soluciones 
+- Para FE y BE se tiene todas las vistas para los listados, modificaciones y eliminaciones.
+- Registro y listado de docentes (CRUD) para BE y FE.
+- Registro y listado de aulas (CRUD) para BE y FE.
+- Registro y listado de Materias (CRUD) para BE y FE.
+- Registro y listado de Horarios (CRUD) para BE y FE. (Falta)
+- Validaciones en los formularios (Demo Login de la App)
+
+## Soluciones Opcionales
+- Se valida los datos desde BE.
+- Existe validacion en formulario (Demo login de la App).
+- Es responsivo la Aplicacion. 
+
 ## Meta
 
 Dheeyi William – [@YourTwitter](https://twitter.com/dheeyi) – dheeyi@gmail.com tel:(+591) 76567373
