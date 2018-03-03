@@ -102,7 +102,7 @@ export default {
       (!fakeResponse.token) ? this.loginFailed() : this.redirectHome(fakeResponse.token)
     },
     loginFailed () {
-      this.error = 'Login failed!'
+      this.error = 'Escribir... email:' + this.fakeUSer.email + ' y password:' + this.fakeUSer.password
       delete localStorage.token
     },
     redirectHome (token) {
