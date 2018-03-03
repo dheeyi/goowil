@@ -23,13 +23,31 @@
                   <v-text-field label="Estado" v-model="editedItem.state"></v-text-field>
                 </v-flex>
                 <v-flex xs12 sm6 md4>
-                  <v-text-field label="UID Aula" v-model="editedItem.idaula"></v-text-field>
+                  <v-select
+                    label="UID Aula"
+                    autocomplete
+                    chips
+                    v-model="editedItem.idaula"
+                    :items="aulas"
+                  ></v-select>
                 </v-flex>
                 <v-flex xs12 sm6 md4>
-                  <v-text-field label="UID Docente" v-model="editedItem.iddocente"></v-text-field>
+                  <v-select
+                    label="UID Docente"
+                    autocomplete
+                    chips
+                    v-model="editedItem.iddocente"
+                    :items="docentes"
+                  ></v-select>
                 </v-flex>
                 <v-flex xs12 sm6 md4>
-                  <v-text-field label="UID Materia" v-model="editedItem.idmateria"></v-text-field>
+                  <v-select
+                    label="UID Materia"
+                    autocomplete
+                    chips
+                    v-model="editedItem.idmateria"
+                    :items="materias"
+                  ></v-select>
                 </v-flex>
               </v-layout>
             </v-container>
@@ -66,7 +84,7 @@
         </td>
       </template>
       <template slot="no-data">
-        <v-btn color="primary" @click="getHorario">Reset</v-btn>
+        <v-btn color="primary" @click="getData">Reset</v-btn>
       </template>
     </v-data-table>
   </div>
@@ -79,6 +97,9 @@ export default {
   data () {
     return {
       horarios: [],
+      docentes: [],
+      materias: [],
+      aulas: [],
       dialog: false,
       editedIndex: -1,
       editedItem: {
@@ -138,7 +159,7 @@ export default {
     }
   },
   mounted () {
-    this.getHorario()
+    this.getData()
   },
   computed: {
     formTitle () {
@@ -151,9 +172,15 @@ export default {
     }
   },
   methods: {
-    async getHorario () {
-      const response = await apiService.fetchHorarios()
-      this.horarios = response.data
+    async getData () {
+      const responseHor = await apiService.fetchHorarios()
+      this.horarios = responseHor.data
+      const responseDoc = await apiService.fetchDocentes()
+      this.docentes = responseDoc.data
+      const responseMat = await apiService.fetchMaterias()
+      this.materias = responseMat.data
+      const responseAu = await apiService.fetchAulas()
+      this.aulas = responseAu.data
     },
 
     async save () {
