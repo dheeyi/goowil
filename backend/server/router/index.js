@@ -1,6 +1,7 @@
 const docenteController = require('../controllers').docente;
 const aulaController = require('../controllers').aula;
 const materiaController = require('../controllers').materia;
+const horarioController = require('../controllers').horario;
 
 module.exports = (app) => {
 
@@ -22,4 +23,9 @@ module.exports = (app) => {
   app.delete('/api/materia/:idmateria', materiaController.destroy);
   app.post('/api/materia/', materiaController.create);
   app.put('/api/materia/:idmateria', materiaController.update);
+
+  app.get('/api/horario', horarioController.list);
+  app.delete('/api/horario/:idhorario', horarioController.destroy);
+  app.post('/api/horario/', horarioController.create);
+  app.put('/api/horario/:idhorario', horarioController.update);
 };

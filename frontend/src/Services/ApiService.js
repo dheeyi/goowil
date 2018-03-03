@@ -38,5 +38,18 @@ export default {
   },
   updateMateria (params) {
     return Api().put('/materia/' + params.idmateria, params)
+  },
+
+  fetchHorarios () {
+    return Api().get('/horario')
+  },
+  deleteHorario (id) {
+    return Api().delete('/horario/' + id)
+  },
+  addHorario (params) {
+    return Api().post('/materia', params)
+  },
+  updateHorario (params) {
+    return Api().put('/horario/' + params.idhorario, params)
   }
 }
