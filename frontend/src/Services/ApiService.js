@@ -1,6 +1,13 @@
 import Api from '@/Services/Api'
 
 export default {
+  userLogin (params) {
+    return Api().post('/user/login', params)
+  },
+  addUser (params) {
+    return Api().post('/user', params)
+  },
+
   fetchDocentes () {
     return Api().get('/docente')
   },

@@ -2,12 +2,16 @@ const docenteController = require('../controllers').docente;
 const aulaController = require('../controllers').aula;
 const materiaController = require('../controllers').materia;
 const horarioController = require('../controllers').horario;
+const userController = require('../controllers').user;
 
 module.exports = (app) => {
 
   app.get('/api', (req, res) => res.status(200).send({
-    message: 'Welcome... API de creacion de HORARIOS!',
+    message: 'Welcome ... API for creation SCHEDULES!'
   }));
+
+  app.post('/api/user/login', userController.userLogin);
+  app.post('/api/user/', userController.create);
 
   app.get('/api/docente', docenteController.list);
   app.delete('/api/docente/:iddocente', docenteController.destroy);

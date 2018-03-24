@@ -6,9 +6,9 @@
 export default {
   name: 'Logout',
   created () {
-    delete localStorage.token
+    delete localStorage.user
     this.$router.replace('/')
-    this.$router.go({ path: '/' })
+    this.$router.go('/')
   }
 }
 </script>

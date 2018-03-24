@@ -1,5 +1,5 @@
-# VueJS, Node, Express, Sequelize y PostgreSQL
-> Application para la manejo de registros de Docentes, Aulas, Materias y Horarios.
+# Vue, Node, Express, Sequelize, PostgreSQL and Vuetify
+> This application uses: Vue 2, NodeJS, Express, Sequelize, PostGreSQL and Vuetify. System that allows to create Schedules.
 
 >GooWil App 
 
@@ -23,8 +23,10 @@ npm install
 ```
 
 ## Usage
-
-#### Configuracion de la base de datos PostgreSQL [backend/server/config/config.json]
+* It is necessary
+    * Install PostgreSQL
+    * Configuration of the PostgreSQL database [backend/server/config/config.json]
+#### 
         
     {
       "development": {
@@ -40,7 +42,7 @@ npm install
 
 ## Development setup
 
-Para poder ejecutar la aplicacion, se hace necesario tener corriendo la app backend y frontend
+To run the application, it is necessary to have running the backend and frontend app
 
 ```sh
 cd backend
@@ -57,24 +59,11 @@ npm run dev
 * 0.0.1
     * Work in progress
 
-## Soluciones 
-- Para FE y BE se tiene todas las vistas para los listados, modificaciones y eliminaciones.
-- Registro y listado de docentes (CRUD) para BE y FE.
-- Registro y listado de aulas (CRUD) para BE y FE.
-- Registro y listado de Materias (CRUD) para BE y FE.
-- Registro y listado de Horarios (CRUD) para BE y FE. (Falta)
-- Validaciones en los formularios (Demo Login de la App)
-
-## Soluciones Opcionales
-- Se valida los datos desde BE.
-- Existe validacion en formulario (Demo login de la App).
-- Es responsivo la Aplicacion. 
-
 ## Meta
 
-Dheeyi William – [@YourTwitter](https://twitter.com/dheeyi) – dheeyi@gmail.com tel:(+591) 76567373
+Dheeyi William – [@YourTwitter](https://twitter.com/dheeyi) – dheeyi@gmail.com
 
-See ``LICENSE`` for more information.
+See ``MIT LICENSE`` for more information.
 
 [https://github.com/dheeyi/](https://github.com/dheeyi/)
 

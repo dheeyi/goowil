@@ -11,7 +11,7 @@ app.use(cors())
 require('../server/router')(app);
 
 app.get('*', (req, res) => res.status(200).send({
-  message: 'API Horarios Work...!!!',
+  message: 'API Schedules Work ... !!!',
 }));
 
 app.listen(process.env.PORT || 8091)
