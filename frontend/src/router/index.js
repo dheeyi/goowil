@@ -1,60 +1,63 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from '@/components/views/Home'
-import Docente from '@/components/views/Docente'
-import Aula from '@/components/views/Aula'
-import Materia from '@/components/views/Materia'
-import Horario from '@/components/views/Horario'
-import Logout from '@/components/views/Logout'
-import Vuetify from 'vuetify'
-import VueSweetalert2 from 'vue-sweetalert2'
-import 'vuetify/dist/vuetify.min.css'
 
-Vue.use(Vuetify, {
-  theme: {
-    primary: '#7986CB',
-    secondary: '#e57373',
-    accent: '#9c27b0',
-    error: '#f44336',
-    warning: '#ffeb3b',
-    info: '#2196f3',
-    success: '#4caf50'
-  }
-})
-Vue.use(VueSweetalert2)
 Vue.use(Router)
 
 export default new Router({
+  mode: 'history',
+  base: process.env.BASE_URL,
+  scrollBehavior: (to, from, savedPosition) => {
+    if (to.hash) return { selector: to.hash }
+    if (savedPosition) return savedPosition
+
+    return { x: 0, y: 0 }
+  },
   routes: [
     {
       path: '/',
-      name: 'Home',
-      component: Home
+      component: () => import('@/layouts/home/Index.vue'),
+      children: [
+        {
+          path: '',
+          name: 'Home',
+          component: () => import('@/views/home/Index.vue'),
+        },
+        {
+          path: '/admin/login',
+          name: 'Login',
+          component: () => import('@/views/login/Index.vue'),
+        },
+        {
+          path: '/api/docente',
+          name: 'Docentes',
+          component: () => import('@/views/home/Index.vue'),
+        },
+        {
+          path: '/api/aula',
+          name: 'Aulas',
+          component: () => import('@/views/home/Index.vue'),
+        },
+        {
+          path: '/api/materia',
+          name: 'Materias',
+          component: () => import('@/views/home/Index.vue'),
+        },
+        {
+          path: '/api/horario',
+          name: 'Horarios',
+          component: () => import('@/views/home/Index.vue'),
+        },
+        {
+          path: '/logout',
+          name: 'Logout',
+          component: () => import('@/views/home/Index.vue'),
+        },
+        {
+          path: '*',
+          name: '404',
+          component: () => import('@/views/404/Index.vue'),
+        },
+      ]
     },
-    {
-      path: '/api/docente',
-      name: 'Docentes',
-      component: Docente
-    },
-    {
-      path: '/api/aula',
-      name: 'Aulas',
-      component: Aula
-    },
-    {
-      path: '/api/materia',
-      name: 'Materias',
-      component: Materia
-    },
-    {
-      path: '/api/horario',
-      name: 'Horarios',
-      component: Horario
-    },
-    {
-      path: '/logout',
-      name: 'Logout',
-      component: Logout
-    }
   ]
 })
